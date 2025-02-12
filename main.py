@@ -344,7 +344,7 @@ class QingMaLearningSystem:
             logger.error(f"请求出错: {e}")
 
     
-        def get_article_course_info(self, kcid: str, y: str):
+    def get_article_course_info(self, kcid: str, y: str):
         url = f"https://qmbbs.17el.cn/hnlgbAction_getCourseInfo.action"
         params = {
             "kcid": kcid,
@@ -545,7 +545,8 @@ class QingMaLearningSystem:
             logger.error(f"getCourseInfo请求出错: {e}")
     def tipsLearnInfo(self,list,isVr):
         lastLearnDate=None
-        k=-1,x=0
+        k=-1
+        x=0
         for i,item in enumerate(list):
             zsj=item['zsj']
             zsjArr=[]
@@ -613,7 +614,7 @@ class QingMaLearningSystem:
             "kcId":kcId,"siteId": "125","jid":jid
         }
         result=self.post(url,data=data)
-        
+
     #视频类型中:获取当前节的播放信息
     def getPlayerInfo(self, jid: str, ocid:int=0):
         url = f"{self.BBS_HOST}/personal_getPlayerInfo.action"
